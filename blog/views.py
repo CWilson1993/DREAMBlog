@@ -13,8 +13,7 @@ class PostList(generic.ListView):
     template_name = 'index.html'
     paginate_by = 6
     posts = Post.objects.prefetch_related('tags').all()
-    tags = Tag.objects.all()
-    context = {'posts': posts, 'tags': tags}
+    context = {'posts': posts}
 
 
 class PostDetail(View):
