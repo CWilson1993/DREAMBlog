@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic, View
 from django.http import HttpResponseRedirect
+from taggit.models import Tag
 from .models import Post
 from .forms import CommentForm
 from django.contrib import messages
@@ -11,6 +12,9 @@ class PostList(generic.ListView):
     queryset = Post.objects.filter(status=1).order_by('-created_on')
     template_name = 'index.html'
     paginate_by = 6
+    posts = Post.objects.prefetch_related('tags').all()
+    tags = Tag.objects.all()
+    context = {'posts': posts, 'tags': tags}
 
 
 class PostDetail(View):

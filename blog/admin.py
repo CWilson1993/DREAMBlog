@@ -12,6 +12,9 @@ class PostAdmin(SummernoteModelAdmin):
     list_filter = ('status', 'created_on')
     summernote_fields = ('content')
 
+    def get_queryset(self, request):
+        return super().get_queryset(request).prefetch_related('tags')
+
     def get_tags(self, obj):
         return ", ".join(o for o in obj.tags.names())
 
