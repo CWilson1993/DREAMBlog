@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
 from taggit.managers import TaggableManager
+from django.urls import reverse
 
 
 STATUS = ((0, "Draft"), (1, "Published"))
@@ -26,6 +27,9 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
+
+    def get_absolute_url(self):
+        return reverse("post_detail", kwargs={"pk": self.pk})
 
     def number_of_likes(self):
         return self.likes.count()
