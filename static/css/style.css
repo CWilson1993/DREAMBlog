@@ -144,3 +144,9 @@ body {
 .tags_post{
     margin-top: 5%;
 }
+
+
+.form-container {
+    background-color: #faebd7;
+    color: #050533;
+}

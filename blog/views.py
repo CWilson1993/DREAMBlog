@@ -7,6 +7,13 @@ from .forms import CommentForm
 from django.contrib import messages
 
 
+def handler404(request, exception):
+    """
+    Custom 404 page
+    """
+    return render(request, "errors/404.html", status=404)
+
+
 class PostList(generic.ListView):
     model = Post
     queryset = Post.objects.filter(status=1).order_by('-created_on')
