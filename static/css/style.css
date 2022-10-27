@@ -150,3 +150,18 @@ body {
     background-color: #faebd7;
     color: #050533;
 }
+
+.back-btn {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 99;
+    border: none;
+    outline: none;
+    background: #050533;
+    color: #faebd7;
+    cursor: pointer;
+    border-radius: 100px;
+    font-size: 30px;
+}
