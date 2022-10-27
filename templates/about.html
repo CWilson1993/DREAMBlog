@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container border-top pt-3">
+    <h1>Welcome to Dream Blog</h1>
+    <p>The blog where we discuss any movie out there.</p>
+</div>    
+<div class="container border-top pt-3">
+    <p>Feel free to browse all of the blog posts <a href="{% url 'post_list' %}" class="post-link"><strong>here</strong></a>.</p>
+    
+</div>
+{% endblock content %}
