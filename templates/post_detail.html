@@ -71,6 +71,13 @@
                         {% endfor %}
                     </p>
                     <div class="col-md-1">
+                        <a href="{% url 'edit' post.pk %}">
+                            <button type="button" class="btn btn-info">
+                                <span class="far fa-edit"></span>
+                            </button>
+                        </a>
+                    </div>
+                    <div class="col-md-1">
                         <a href="{% url 'delete' post.pk %}">
                             <button type="button" class="btn btn-danger">
                                 <span class="far fa-trash-alt"></span>

@@ -112,5 +112,15 @@ def delete(request, pk, template_name='post_confirm_delete.html'):
     return render(request, template_name, {'object': post})
 
 
+# Edit a post
+def edit(request, pk, template_name='post_edit.html'):
+    post = get_object_or_404(Post, pk=pk)
+    form = PostForm(request.POST or None, instance=post)
+    if form.is_valid():
+        form.save()
+        return redirect('/posts/')
+    return render(request, template_name, {'form': form})
+
+
 def Home(request):
     return render(request, 'about.html', {'title': 'About'})
