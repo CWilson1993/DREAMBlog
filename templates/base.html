@@ -40,12 +40,14 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'post_list' %}">Posts</a>
                     </li>
+                    {% if user.is_staff %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'post_create' %}">New Post</a>
+                    </li>
+                    {% endif %}
                     {% if user.is_authenticated %}
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'post_create' %}">New Post</a>
                     </li>
                     {% else %}
                     <li class="nav-item">
