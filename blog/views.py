@@ -1,9 +1,10 @@
-from django.shortcuts import render, get_object_or_404, reverse
+from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.views import generic, View
+from django.views.generic import ListView, DetailView
 from django.http import HttpResponseRedirect
 from taggit.models import Tag
 from .models import Post
-from .forms import CommentForm
+from .forms import CommentForm, PostForm
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 
@@ -92,39 +93,14 @@ class PostLike(View):
         return HttpResponseRedirect(reverse('post_detail', args=[slug]))
 
 
-class PostCreateView(LoginRequiredMixin, generic.CreateView):
-    model = Post
-    fields = ['title', 'content']
-
-    def form_valid(self, form):
-        form.instance.author = self.request.user
-        return super().form_valid(form)
-
-
-class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, generic.UpdateView):
-    model = Post
-    fields = ['title', 'content']
-
-    def form_valid(self, form):
-        form.instance.author = self.request.user
-        return super().form_valid(form)
-
-    def test_func(self):
-        post = self.get_object()
-        if self.request.user == post.author:
-            return True
-        return False
-
-
-class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, generic.DeleteView):
-    model = Post
-    success_url = '/'
-
-    def test_func(self):
-        post = self.get_object()
-        if self.request.user == post.author:
-            return True
-        return False
+def postview(request):
+    if request.method == 'POST':
+        form = PostForm(request.POST)
+        if form.is_valid():
+            form.save()
+        return redirect('/posts/')
+    form = PostForm()
+    return render(request, 'post_form.html', {'form': form})
 
 
 def Home(request):
