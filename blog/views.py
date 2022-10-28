@@ -103,5 +103,14 @@ def postview(request):
     return render(request, 'post_form.html', {'form': form})
 
 
+# Delete post
+def delete(request, pk, template_name='post_confirm_delete.html'):
+    post = get_object_or_404(Post, pk=pk)
+    if request.method == 'POST':
+        post.delete()
+        return redirect('/posts/')
+    return render(request, template_name, {'object': post})
+
+
 def Home(request):
     return render(request, 'about.html', {'title': 'About'})
