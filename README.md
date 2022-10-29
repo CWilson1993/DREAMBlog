@@ -140,12 +140,71 @@ A welcoming homepage was built to welcome the user to the site and clearly conve
 #### Navigation Bar
 The main navigation bar appears at the top of the page, clearly displaying the main navigational links users would require.
 
-![Nav Bar](./docs/)
+![Nav Bar](./docs/basic_navbar.png)
 
 A secondary user menu is available to users who are logged into the site.
 
-![logged in user nav bar](./docs/)
+![logged in user nav bar](./docs/user_login_navbar.png)
+
+A separate menu is available to site owners who are logged into the site.
+
+![logged in admin nav bar](./docs/admin_login_navbar.png)
 
 
 #### Footer
-A common footer is utilised throughout the site.
+A common footer is utilised throughout the site. It has the typical social links.
+
+![footer](./docs/footer.png)
+
+#### Blog Post Cards
+The cards show the user the title of the post, the featured image of the post, brief description of the post and the author of the post. 
+This allows the users to quickly identify the posts they would like to look at in more detail.
+
+##### Standard Blog Post Card
+![Standard Post](./docs/blog_card.png)
+
+#### Blog Post Detail
+The post detail page shows several different elements including the content, number of likes, comments and also allows logged in users to comment.
+
+![Post Detail](./docs/detail_post.png)
+
+#### Blog Post List
+The post list page shows the blog posts on the site, it will show several posts and then allow users to move to the next page to view more.
+
+![Post List](./docs/post_list.png)
+
+## Future Enhancements
+There are several items of functionality that I would like to add in the future.
+The key areas I would like to add to the site in the future are:
+
+* The ability for users to login via social networks such as google or facebook
+* Forgot/reset password functionality
+* Automatic emails when users sign up
+
+
+[Back to the Top](#table-of-contents)
+
+## Testing
+
+### Testing Strategy
+I used a manual testing strategy for the development of the site.
+Separate to the functionality testing of the site, and the testing of the code, User Story tests were implemented to ensure that the criteria of the user stories listed above were met.
+
+
+#### Testing Overview
+
+Testing was divided into different sections to ensure everything was tested individually with test cases developed for each area.
+
+
+#### Validator Testing
+All code files were validated using suitable validators for the specific language.
+HTML & CSS code passed the validation.
+JavaScript code produced one warning about the use of an anonymous function within a loop.
+When this function was named and moved outside the loop but referenced inside the loop, it broke functionality.
+After attempting a few fixes I decided that an anonymous function inside a for loop was an acceptable JavaScript practice.
+All validation screenshots are included below.
+
+All HTML validation returned the same result so I have included only 1 screenshot here.
+![HTML Validation](./docs/html_validator.png)
+![CSS Validation](./docs/css_validator.png)
+![JS Validation](./docs/jshint_validator.png)

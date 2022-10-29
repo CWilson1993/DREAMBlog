@@ -151,19 +151,21 @@ body {
     color: #050533;
 }
 
-.back-btn {
+.back-to-top {
     display: none;
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 99;
-    border: none;
-    outline: none;
-    background: #050533;
-    color: #faebd7;
-    cursor: pointer;
-    border-radius: 100px;
-    font-size: 30px;
+    text-align: center;
+    background-color: #6e9d6c;
+    color: black;
+    font-size: .8rem;
+    font-weight: bold;
+    text-decoration: none;
+    padding: .5rem;
+    border-radius: 50%;
+    bottom: 1rem;
+    width: 5rem;
+    place-self: end;
+    position: sticky;
+    z-index: 5000;
 }
 
 .content-section {
